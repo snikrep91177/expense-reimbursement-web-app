@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Home</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+
+	<!-- NAVBAR -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+		<a class="navbar-brand" href="#">Office Space</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarNav" aria-controls="navbarNav"
+			aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item"><a id="home-link" class="nav-link"
+					href="/Project1/html/index.html">Home</a></li>
+				<li class="nav-item"><a id="employee-link" class="nav-link active"
+					href="/Project1/html/employeeHome.html">Employees</a></li>
+				<li class="nav-item"><a id="manager-link" class="nav-link"
+					href="/Project1/html/managerHome.html">Managers</a></li>
+				<li class="nav-item"><a id="logout-link" class="nav-link"
+					href="/Project1/html/managerHome.html">Logout</a></li>
+			</ul>
+		</div>
+	</nav>
+
+
+
+	<div class="form-row align-items-center">
+		<h3 id="welcomeHeader" class="mx-auto"></h3>
+	</div>
+
+
+
+	<div class="form-row align-items-center mb-3">
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary mx-auto mt-5"
+			data-toggle="modal" data-target="#submitreimbmodal"
+			id="submitRequest">Submit Request</button>
+	</div>
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="submitreimbmodal" tabindex="-1"
+		role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"
+		data-delay="1500">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Reimbursement
+						Form</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<div>
+						<!-- method="post" action="/Project1/submitReimb.json"> -->
+						<form id="reimb-form" class="form-group">
+							<label for="reimbtype">Select Reimbursement Type</label> <select
+								class="form-control" id="reimbtype" name="reimbtype">
+								<option value="1">Lodging</option>
+								<option value="2">Travel</option>
+								<option value="3">Food</option>
+								<option value="4">Other</option>
+							</select>
+					</div>
+					<div class="form-group">
+						<label for="amount">Enter Reimbursement Amount</label> <input
+							type="number" class="form-control" id="amount"
+							placeholder="Amount" name="amount">
+					</div>
+					<div class="form-group">
+						<label for="description">Enter a Description</label>
+						<textarea id="description" class="form-control"
+							placeholder="Optional" name="description"></textarea>
+						</form>
+						<button id="submitrequest" type="submit"
+							class="btn btn-primary mt-2">Submit</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="form-row align-items-center mb-5">
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary mx-auto"
+			data-toggle="modal" data-target="#" id="viewreimbbtn">View
+			Your Reimbursements</button>
+	</div>
+
+
+
+	<!-- Modal -->
+	<div class="modal fade" id="viewreimbmodal" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true"
+		data-delay="1500">
+		<div class="modal-dialog modal-xl modal-dialog-centered"
+			role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Your
+						Reimbursements Requests</h5>
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body overflow-auto">
+					<div id="submitreimb" class="overflow-auto">
+						<!-- method="post" action="/Project1/submitReimb.json"> -->
+						<div id="tablediv" class="form-group overflow-auto"></div>
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<!-- Flexbox container for aligning the toasts -->
+	<div aria-live="polite" aria-atomic="true"
+		class="d-flex justify-content-center align-items-center"
+		style="min-height: 200px;">
+
+		<!-- Then put toasts within -->
+		<div id="mytoast" class="toast" role="alert" aria-live="assertive"
+			aria-atomic="true" data-delay="4000">
+			<div class="toast-header">
+				<strong id="headertext" class="mr-auto"></strong>
+				<button type="button" class="ml-2 mb-1 close" data-dismiss="toast"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div id="toastbody" class="toast-body"></div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript" src="/Project1/js/employeeHome.js"></script>
+</body>
+</html>
